@@ -15,6 +15,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 30px;
 }
 
 /* navigation buttons have full width */
@@ -31,47 +32,230 @@ ul {
 
 /* Task 2.1. Lay out the childs of the 'body' using Grid Template Areas. */
 
+body {
+  margin: 0;
+  display: grid;
+  grid-template-areas: 
+  "h"
+  "n"
+  "m"
+  "f";
+  grid-template-rows: auto auto 1fr auto;
+}
+
+header  {grid-area: h; }
+nav     {grid-area: n; }
+main    {grid-area: m; overflow-y: auto;}
+footer  {grid-area: f; }
+
+
+@media (min-width: 768px) {
+  body {
+
+    grid-template-areas: 
+    "h h"
+    "n m"
+    "f f";
+
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+}
+
 
 /* Task 3.1. Make the header element a flex container and center its children
    vertically and horizontally.
  */
+
+ header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+ }
 
 
 /* Task 3.2. Make the list items of the unordered list in the nav element a flex container, 
    use column direction and center the child items
  */
 
+ nav ul{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+ }
+
+ .genre-btn {
+  padding: 0.4em 1em 0.4em 1.5em;
+  color: white;
+  font-size: 0.9em;
+ }
+
 /* Task 3.3. Make the main element a Flexbox container */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content:  center;
+  align-content: flex-start;
+  align-items: flex-start;
+}
 
 
 /* Task 3.4. Make the footer's ul a Flexbox container */
 
+footer {
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 8px;
+  gap: 0.2em
+}
+
 
 /* From here on styling from exercise 1 */
-img {
-  border-radius: 12px;
+        img {
+            border-radius: 0.3em;
+            max-width: 200px;
+            align-self: center;
+            height: auto;
+        }
+
+        /*Same background and boarders for Headlines and ratings*/
+        article h2, article h3, .movie-ratings {
+            background-color: rgb(17, 27, 27);
+            border-radius: 0.6em;
+        }      
+        
+        article h2 {
+            font-weight:normal;
+            color: antiquewhite;
+            letter-spacing: 0.03em;
+            padding: 0.4em 0.5em;
+            font-size: 1.5em;
+        }
+
+        article h3 {
+            font-weight:normal;
+            font-size: 85%;
+            color: rgb(209, 235, 236);
+            padding: 0.2em 0.5em;
+            display: block;
+            width: fit-content;
+            margin: 0.5em 0 0.1em 0;
+        }
+
+        nav h2 {
+          margin: 0;
+        }
+
+
+        article {
+
+            background-color:rgb(23, 39, 39);
+            border-radius: 0.3em;
+            width: 100%;
+            max-width: 900px;
+            box-sizing: border-box;
+            margin: 0.5em;
+            padding: 1em;
+            box-shadow: 0 3px 10px rgb(85, 150, 158);
+            display: flex;
+            gap: 1.25em;
+            align-items: flex-start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /*makes the transition to the hover effect more smooth*/
+        }
+
+        article:hover { /*the articles ist lifted up and shadow is turned to white glow*/
+            transform: translateY(-0.5em);  
+            box-shadow: 0 0.75em 1.5em rgb(255, 255, 255);
+        }
+
+        .movie-content {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.3em;
+            color: antiquewhite;
+            padding: 0 0 0 2em;
+            font-size: 95%;    
+        }
+
+          .movie-content > * {
+          margin: 0;
+        }      
+
+        .movie-content > h2 {
+            margin: 0.5em 0 0.1em -0.9em;
+          }
+
+        .movie-data {
+            display: flex;
+            gap: 1em;
+            font-size: 0.9em;
+            color: rgb(209, 235, 236);
+        }
+
+        .genre-tag {
+            padding: 0.2em 0.5em;
+            border-radius: 0.6em;
+            margin-right: 0.3em;
+            display: inline-block;
+            font-size: 90%;
+            color: antiquewhite;
+            box-shadow: 0 1px 5px rgb(29, 26, 26);
+        }
+
+        .genre-list {
+            margin-left: auto;
+        }
+
+        .movie-ratings {
+            color: #dadada;
+            margin-left: auto;
+            width: fit-content;
+            padding: 0.3em 0.6em;
+            gap: 0.9em;
+            display: flex;
+        }
+
+        article section {
+            margin: 0;
+        }
+
+        .edit-btn {
+          border-radius: 0.6em;
+          padding: 0.2em 1em;
+          display: block;
+          width: fit-content;
+          background-color: rgb(209, 235, 236);
+          color:rgb(23, 71, 71);
+          font-size: 1em;
+          margin: 0.5em 0.3em 0 auto;
+          
+        }
+        
+        .edit-btn:hover {
+          box-shadow: 0 1px 5px rgb(135, 218, 213);
+        }
+
+        input {
+  width: 100%;
 }
 
-article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
-  width: 384px;
-  margin: 8px;
+select {
+  width: 100%;
 }
 
-a {
-  color: beige;
+textarea {
+  width: 100%;
 }
 
-span {
-  margin-right: 4px;
-}
 
-.genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
-  font-weight: bold;
-}

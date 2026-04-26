@@ -1,11 +1,76 @@
 @import url(base.css);
 
+h1 {
+  font-weight: normal;
+  color: antiquewhite;
+  letter-spacing: 0.1em;
+  font-size: 1.8em;
+  padding: 0.3em;
+  border-radius: 0.6em;
+  display: block;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+form {
+  background-color: rgb(23, 39, 39);
+  border-radius: 0.3em;
+  width: 70%;
+  margin: 1em auto;
+  padding: 1.5em 2em;
+  box-shadow: 0 3px 10px rgb(85, 150, 158);
+}
+
+div {
+  margin: 0.7em 0;
+}
+
+label {
+  display: block;
+  font-weight:normal;
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  color: antiquewhite;
+  margin-bottom: 0.4em;
+}
+
 input,
 select,
 textarea {
   width: 100%;
+  background-color: rgb(209, 235, 236);
+  color: rgb(22, 21, 20);
+  border: 1px solid rgb(85, 150, 158);
+  border-radius: 0.3em;
+  padding: 0.3em 0.5em;
+  font-size: 1em;
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-div {
-  margin: 4px 0px;
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgb(85, 150, 158);
+}
+
+.save-btn {
+  background-color: rgb(209, 235, 236);
+  color: rgb(23, 71, 71);
+  margin-top: 1em;
+}
+
+.save-btn:hover {
+  box-shadow: 0 1px 5px rgb(135, 218, 213);
+}
+
+.cancel-btn {
+  background-color: rgb(11, 18, 18);
+  color: rgb(209, 235, 236);
+  margin-top: 1em;
+}
+
+.cancel-btn:hover {
+  box-shadow: 0 1px 5px rgb(85, 150, 158);
 }
